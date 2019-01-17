@@ -9,8 +9,9 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
-
-  // Your code here
+  const firstVowel = word.match([aeiou]);
+  const firstPosition = word.indexOf(firstVowel);
+ 
 
 }
 
@@ -18,7 +19,7 @@ function pigLatin(word) {
 function getPrompt() {
   rl.question('word ', (answer) => {
     console.log( pigLatin(answer) );
-    getPrompt();
+    getPrompt(michael);
   });
 }
 
