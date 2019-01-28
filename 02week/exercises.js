@@ -17,17 +17,19 @@ let stringOfCars = totalCars.join();
 console.log(stringOfCars);
 
 // split
-
-// console.log("   split   ");
-
 totalCars = stringOfCars.split(" ");
-console.log(stringOfCars.split(" "));
+console.log(totalCars);
 
 // reverse
-carsInReverse = totalCars.reverse(",");
+carsInReverse = totalCars.reverse();
 console.log(carsInReverse);
+// cant get this one to reverse. still prints items in order
 
 // sort
+carsInReverse.sort();
+console.log(carsInReverse);
+// alert(carsInReverse.indexOf('Audi'));
+// not working
 
 // slice
 
