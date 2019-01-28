@@ -13,6 +13,8 @@ let stacks = {
   c: []
 };
 
+const n = 3; 
+
 function printStacks() {
   console.log("a: " + stacks.a);
   console.log("b: " + stacks.b);
@@ -21,6 +23,7 @@ function printStacks() {
 
 function movePiece() {
   // Your code here
+  
 
 }
 
@@ -34,9 +37,11 @@ function checkForWin() {
 
 }
 
-function towersOfHanoi(startStack, endStack) {
+function towersOfHanoi(n, startStack, destStack, endStack) {
   // Your code here
-
+  if (n > 0) {
+    towersOfHanoi(n-1, startStack, endStack, destStack)
+  }
 }
 
 function getPrompt() {
@@ -48,6 +53,8 @@ function getPrompt() {
     });
   });
 }
+
+towersOfHanoi();
 
 // Tests
 
