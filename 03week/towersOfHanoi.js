@@ -13,7 +13,7 @@ let stacks = {
   c: []
 };
 
-const n = 3; 
+const n = 4; 
 
 function printStacks() {
   console.log("a: " + stacks.a);
