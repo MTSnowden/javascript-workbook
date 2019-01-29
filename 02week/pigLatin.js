@@ -22,9 +22,9 @@ const rl = readline.createInterface({
   
   }
   
-  translatePigLatin("mike");
+  translatePigLatin('mike');
 
-}
+
 
 
 function getPrompt() {
