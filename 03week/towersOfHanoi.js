@@ -37,10 +37,11 @@ function checkForWin() {
 
 }
 
-function towersOfHanoi(n, startStack, destStack, endStack) {
+function towersOfHanoi(n, startStack, endStack) {
   // Your code here
-  if (n > 0) {
-    towersOfHanoi(n-1, startStack, endStack, destStack)
+  if (n == 0) return;
+  {
+    towersOfHanoi(n-1, startStack, endStack)
   }
 }
 
