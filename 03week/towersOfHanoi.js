@@ -13,7 +13,6 @@ let stacks = {
   c: []
 };
 
-const n = 4; 
 
 function printStacks() {
   console.log("a: " + stacks.a);
@@ -27,35 +26,49 @@ function movePiece() {
 
 }
 
-function isLegal() {
+function isLegal(startStack, endStack) {
   // Your code here
-
+  if ((startStack === 'a' || startStack === 'b' || startStack === 'c') && 
+      (endStack === 'a' || endStack === 'b' || endStack === 'c')) {
+        if (stacks[startStack].length-1 < stacks[endStack].length) {
+          return true;
+        }else{
+          return false;
+        }
+  } else {
+    console.log("Invalid entry");
+  }
 }
 
 function checkForWin() {
   // Your code here
-
+ if (stacks.c.length === 4) {
+   console.log("You win!");
+ }else{ 
+   getPrompt();
+ }
 }
 
-function towersOfHanoi(n, startStack, endStack) {
+function towersOfHanoi(startStack, endStack) {
   // Your code here
-  if (n == 0) return;
-  {
-    towersOfHanoi(n-1, startStack, endStack)
+if (isLegal(startStack, endStack)) {
+  movePiece(startStack, endStack);
+  checkForWin(startStack, endStack);
+} 
+ 
   }
-}
+
 
 function getPrompt() {
   printStacks();
   rl.question('start stack: ', (startStack) => {
     rl.question('end stack: ', (endStack) => {
       towersOfHanoi(startStack, endStack);
-      getPrompt();
+      
     });
   });
 }
 
-towersOfHanoi();
 
 // Tests
 
