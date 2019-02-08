@@ -22,19 +22,23 @@ function printStacks() {
 
 function movePiece() {
   // Your code here
-  
+  if (isLegal(startStack, endStack) === true) {
+    return true;
+  }else {
+    console.log("SORRY HUNNI THAT AINT GONNA WORK")
+  }
 
 }
 
 function isLegal(startStack, endStack) {
   // Your code here
-  if ((startStack === 'a' || startStack === 'b' || startStack === 'c') && 
-      (endStack === 'a' || endStack === 'b' || endStack === 'c')) {
-        if (stacks[startStack].length-1 < stacks[endStack].length) {
-          return true;
-        }else{
-          return false;
-        }
+  if ((startStack === 'a' || startStack === 'b' || startStack === 'c') &&
+    (endStack === 'a' || endStack === 'b' || endStack === 'c')) {
+    if (stacks[startStack].length - 1 < stacks[endStack].length) {
+      return true;
+    } else {
+      return false;
+    }
   } else {
     console.log("Invalid entry");
   }
@@ -42,21 +46,21 @@ function isLegal(startStack, endStack) {
 
 function checkForWin() {
   // Your code here
- if (stacks.c.length === 4) {
-   console.log("You win!");
- }else{ 
-   getPrompt();
- }
+  if (stacks.c.length === 4) {
+    console.log("You win!");
+  } else {
+    getPrompt();
+  }
 }
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
-if (isLegal(startStack, endStack)) {
-  movePiece(startStack, endStack);
-  checkForWin(startStack, endStack);
-} 
- 
+  if (isLegal(startStack, endStack)) {
+    movePiece(startStack, endStack);
+    checkForWin(startStack, endStack);
   }
+
+}
 
 
 function getPrompt() {
@@ -64,7 +68,7 @@ function getPrompt() {
   rl.question('start stack: ', (startStack) => {
     rl.question('end stack: ', (endStack) => {
       towersOfHanoi(startStack, endStack);
-      
+
     });
   });
 }
@@ -77,7 +81,11 @@ if (typeof describe === 'function') {
   describe('#towersOfHanoi()', () => {
     it('should be able to move a block', () => {
       towersOfHanoi('a', 'b');
-      assert.deepEqual(stacks, { a: [4, 3, 2], b: [1], c: [] });
+      assert.deepEqual(stacks, {
+        a: [4, 3, 2],
+        b: [1],
+        c: []
+      });
     });
   });
 
@@ -101,9 +109,17 @@ if (typeof describe === 'function') {
   });
   describe('#checkForWin()', () => {
     it('should detect a win', () => {
-      stacks = { a: [], b: [4, 3, 2, 1], c: [] };
+      stacks = {
+        a: [],
+        b: [4, 3, 2, 1],
+        c: []
+      };
       assert.equal(checkForWin(), true);
-      stacks = { a: [1], b: [4, 3, 2], c: [] };
+      stacks = {
+        a: [1],
+        b: [4, 3, 2],
+        c: []
+      };
       assert.equal(checkForWin(), false);
     });
   });
