@@ -1,0 +1,25 @@
+.container {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    width: 75%;
+    background-color: rgb(201, 163, 163);
+    border-radius: 8px;
+    border: 1px solid white;
+    margin: 0 auto;
+    margin-top: 10%;
+    padding: 25px;
+}
+
+body {
+    background-image: url(./piggy.jpg);
+}
+
+p {
+    font-size: 18px;
+}
+
+button, input {
+    padding: 25px;
+    border-radius: 12px;
+    outline: none;
+}
