@@ -8,16 +8,28 @@ const rl = readline.createInterface({
 });
 
 
-function pigLatin(word) {
 
-  // Your code here
+  function translatePigLatin(str) {
+    const vowel = /[aeiou]/;
+    let translated = "";
+    const vowelIndex = str.indexOf(str.match(vowel)[0]);
+    if(str[0].match(vowel)) {
+      translated = str + "way";
+    } else {
+      translated = str.substr(vowelIndex) + str.substr(0, vowelIndex) + "ay";
+    }
+    return translated;
+  
+  }
+  
+  translatePigLatin('mike');
 
-}
+
 
 
 function getPrompt() {
-  rl.question('word ', (answer) => {
-    console.log( pigLatin(answer) );
+  rl.question('str', (answer) => {
+    console.log( translatePigLatin(answer) );
     getPrompt();
   });
 }
@@ -49,3 +61,4 @@ if (typeof describe === 'function') {
   getPrompt();
 
 }
+ 
